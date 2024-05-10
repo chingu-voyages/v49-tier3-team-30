@@ -35,7 +35,7 @@ your repo access and to practice PR'ing with your team *before* you start
 coding!
 
 - Nadia: [GitHub](https://github.com/NadiaPia) / [LinkedIn](https://www.linkedin.com/in/nadiapiatetskaia/)
-- Teammate name #2: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
+- Ahmed: [GitHub](https://github.com/aobaruwa) / [LinkedIn](https://linkedin.com/in/aobn)
 
    ...
 - Teammate name #n: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
