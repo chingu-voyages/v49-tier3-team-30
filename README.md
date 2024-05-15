@@ -39,3 +39,5 @@ coding!
 - Ahmed: [GitHub](https://github.com/aobaruwa) / [LinkedIn](https://linkedin.com/in/aobn)
 - HOAN LE: [GitHub](https://github.com/hoan-k-le) / [LinkedIn](https://linkedin.com/in/hoan-k-le)
 - Daniel: [GitHub](https://github.com/Im-Humor) / [LinkedIn](https://linkedin.com/in/mrdanielrmorris/)
+- Amy Vier: [GitHub](https://github.com/AmyVier) / [LinkedIn](https://linkedin.com/in/amy-vier-b73694218)
+
