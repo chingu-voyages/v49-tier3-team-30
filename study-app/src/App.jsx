@@ -5,6 +5,8 @@ import './components/FrontEndRoadmap/FrontEndRoadmap.css'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import FrontEndRoadmap from './components/FrontEndRoadmap/FrontEndRoadmap';
 import Navbar from './components/Navbar/Navbar';
+import Main from './components/Main/Main';
+
 
 
 
@@ -15,7 +17,7 @@ function App() {
       <Router>
         <Navbar/>
         <Routes>
-          <Route path="/" element={<FrontEndRoadmap />}/>
+          <Route path="/" element={<Main />}/>
           {/* 
           <Route path="/login" element={<Login />}/>
           <Route path="/forgot-password" element={<ForgotPassword />}/>
