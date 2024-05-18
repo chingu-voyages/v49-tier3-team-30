@@ -4,10 +4,12 @@ import "reactflow/dist/style.css";
 
 function FrontEndRoadmap() {   
 
-    const onNodeClick = () => {
-        console.log("Click");
+    const onNodeClick = (e) => {
+        console.log(e.target.innerText); //prints label name
         
     }
+
+
 
 const initialNodes = [
   {
@@ -143,7 +145,7 @@ return (
             nodes={initialNodes} 
             edges={initialEdges} 
             nodeTypes={nodeTypes} 
-            onNodeClick={onNodeClick} 
+            onNodeClick={(e) => onNodeClick(e)} 
             fitView
             zoomOnScroll={false}
             panOnDrag={false}
