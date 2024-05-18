@@ -6,3 +6,7 @@
     width: 100px !important;
 }
 
+.roadmapTitle {
+    display: flex;
+    justify-content: center;
+}

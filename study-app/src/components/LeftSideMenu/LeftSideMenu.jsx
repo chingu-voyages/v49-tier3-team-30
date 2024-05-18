@@ -1,13 +1,18 @@
 import React from "react";
 import { useState } from "react";
 
-const courses = ['Front End', 'Back End', 'Name', 'Name']
+const courses = ['Front End', 'Back End', 'Name1', 'Name2']
 
 function LeftSideMenu(props) {
 
     const selectCourse = (i) => {
-        console.log("Course selected", i)
+        console.log("Course selected", i);
+        //props.setMode(courses[i])
+        props.setMode(props.mode === courses[i] ? "" : courses[i])
+        
+
     }
+    //className="courseName"
 
 
 
@@ -15,7 +20,7 @@ function LeftSideMenu(props) {
     <div className="leftSideMenuSection">
       <div className="leftSideMenuContainer">
         {courses.map((course, id) => (
-            <div className="courseName" onClick={() => selectCourse(id)} key={id}>{course}</div>
+            <div className={props.mode===courses[id] ? "courseNameSelected" : "courseName"} onClick={() => selectCourse(id)} key={id}>{course}</div>
         ))}
 
 

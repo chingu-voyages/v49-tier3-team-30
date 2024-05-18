@@ -2,6 +2,9 @@
 
 import './App.css'
 import './components/FrontEndRoadmap/FrontEndRoadmap.css'
+import './components/BackEndRoadmap/BackEndRoadmap.css'
+import './components/Navbar/Navbar.css'
+
 import './components/LeftSideMenu/LeftSideMenu.css'
 import './components/Main/Main.css'
 

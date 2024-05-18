@@ -27,13 +27,13 @@
     cursor: pointer;
 }
 
-.courseNameActive {
+.courseNameSelected {
     background-color: #00529D;
     color: white;
     display: flex;
     justify-content: center;
     width: 250px;
-    padding: 10px 0
+    padding: 20px 0;
 }
 
 /* .courseName:focus {
