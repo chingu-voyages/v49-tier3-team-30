@@ -1,0 +1,42 @@
+.leftSideMenuSection {
+    background-color: #E4DFDF;    
+    width: 15%
+}
+
+.leftSideMenuContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 30px;
+    align-items: center;
+}
+
+.courseName {
+    background-color: #607262;
+    color: white;
+    display: flex;
+    justify-content: center;
+    width: 250px;
+    padding: 20px 0;  
+
+}
+
+.courseName:hover {
+    background-color: #516053;
+    cursor: pointer;
+}
+
+.courseNameSelected {
+    background-color: #00529D;
+    color: white;
+    display: flex;
+    justify-content: center;
+    width: 250px;
+    padding: 20px 0;
+}
+
+/* .courseName:focus {
+    background-color: #00529D;
+    border: none;
+} */

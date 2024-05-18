@@ -141,6 +141,7 @@ const nodeTypes = {
 
 return (
     <div style={{ width: "50vw", height: "90vh", backgroundColor: "#E4DFDF" }}>
+      <div className="roadmapTitle"><h1>Front End</h1></div>
         <ReactFlow 
             nodes={initialNodes} 
             edges={initialEdges} 

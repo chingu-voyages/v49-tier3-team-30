@@ -2,18 +2,20 @@
 
 import './App.css'
 import './components/FrontEndRoadmap/FrontEndRoadmap.css'
+import './components/BackEndRoadmap/BackEndRoadmap.css'
+import './components/Navbar/Navbar.css'
+
+import './components/LeftSideMenu/LeftSideMenu.css'
+import './components/Main/Main.css'
+
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import FrontEndRoadmap from './components/FrontEndRoadmap/FrontEndRoadmap';
 import Navbar from './components/Navbar/Navbar';
 import Main from './components/Main/Main';
 
-
-
-
-function App() {
+function App() { 
 
   return (
-    <div className="App">
+    <div>
       <Router>
         <Navbar/>
         <Routes>
