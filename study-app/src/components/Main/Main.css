@@ -1,5 +1,11 @@
 .mainContainer {
-    display: flex;
-    flex-direction: row;
-    gap: 20px
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+}
+
+.roadmapContainer {
+	width: 90vw;
+	height: 90vh;
+	background-color: #e4dfdf;
 }

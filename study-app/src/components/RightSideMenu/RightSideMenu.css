@@ -1,0 +1,8 @@
+.rightSideMenu {
+	position: absolute;
+	top: 4rem;
+	right: 0rem;
+	background-color: white;
+	width: 20rem;
+	height: 80%;
+}
