@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import ReactFlow, { MarkerType, Handle, Position } from "reactflow";
 import "reactflow/dist/style.css";
 
-function FrontEndRoadmap() {
+function FrontEndRoadmap({ setSelectedNode }) {
 	const onNodeClick = (e) => {
 		console.log(e.target.innerText); //prints label name
+		setSelectedNode(e.target.innerText);
 	};
 
 	const initialNodes = [

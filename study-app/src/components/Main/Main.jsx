@@ -7,10 +7,11 @@ import RightSideMenu from "../RightSideMenu/RightSideMenu";
 
 function Main() {
 	const [mode, setMode] = useState("");
+	const [selectedNode, setSelectedNode] = useState("");
 
 	const modes = {
-		"Front End": <FrontEndRoadmap />,
-		"Back End": <BackEndRoadmap />,
+		"Front End": <FrontEndRoadmap setSelectedNode={setSelectedNode} />,
+		"Back End": <BackEndRoadmap setSelectedNode={setSelectedNode} />,
 	};
 
 	return (
@@ -19,7 +20,10 @@ function Main() {
 
 			{modes[mode] || <Welcome />}
 
-			<RightSideMenu mode={mode} />
+			<RightSideMenu
+				selectedNode={selectedNode}
+				setSelectedNode={setSelectedNode}
+			/>
 
 			{/* {mode === 'Front End' && <FrontEndRoadmap/>}
       {!mode && <Welcome/>} */}
