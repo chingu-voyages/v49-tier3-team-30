@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../Main/Main.css";
 
 export default function RightSideMenu({ mode }) {
 	return (
