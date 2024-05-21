@@ -1,5 +1,9 @@
 .navbarSection {
-    background-color: #E4DFDF;
-    height: 50px;
-    margin-bottom: 20px;
+	background-color: #e4dfdf;
+	margin-bottom: 20px;
+	padding: 1rem 0 1rem 1rem;
+}
+
+.navLink {
+	margin-right: 1rem;
 }
