@@ -13,7 +13,7 @@ import ProfilePage from "./components/ProfilePage/ProfilePage";
 
 function App() {
 	return (
-		<div>
+		<div className="appContainer">
 			<Router>
 				<Navbar />
 				<Routes>

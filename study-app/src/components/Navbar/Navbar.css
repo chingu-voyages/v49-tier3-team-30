@@ -2,8 +2,13 @@
 	background-color: #e4dfdf;
 	margin-bottom: 20px;
 	padding: 1rem 0 1rem 1rem;
+	display: flex;
 }
 
 .navLink {
 	margin-right: 1rem;
+}
+
+#loginLink {
+	margin-left: auto;
 }
