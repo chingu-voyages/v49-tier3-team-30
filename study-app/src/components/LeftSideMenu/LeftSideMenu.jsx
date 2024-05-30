@@ -1,35 +1,77 @@
-import React from "react";
-import { useState } from "react";
+import axios from "axios";
+import { Position, MarkerType, } from "reactflow";
 
-const courses = ['Front End', 'Back End', 'Name1', 'Name2']
 
-function LeftSideMenu(props) {
+//const courses = ['Front End', 'Back End', 'Name1', 'Name2']
 
-    const selectCourse = (i) => {
-        console.log("Course selected", i);
-        //props.setMode(courses[i])
-        props.setMode(props.mode === courses[i] ? "" : courses[i])
-        
+function LeftSideMenu({ courses, setMode, mode, setEdges, setNodes }) {
+  const selectCourse = async (i) => {
+    console.log("Course selected", i);
+    setMode(mode === courses[i] ? "" : courses[i]);
+   
 
+    try {
+      const response = await axios.get(
+        `http://localhost:3004/course/${courses[i]}`
+      );
+      console.log("response", response.data);     
+     
+      const nodes = response.data[0].nodes.map((node) => {
+        const newNode = {...node};
+        const {sourcePosition, targetPosition} = node.data;
+
+        const positions = {
+          'Position.Right': Position.Right,
+          'Position.Left': Position.Left,
+          'Position.Top': Position.Top,
+          'Position.Bottom': Position.Bottom
+        }
+
+        if (targetPosition) 
+          newNode.data.targetPosition = positions[targetPosition];
+
+        if (sourcePosition) 
+          newNode.data.sourcePosition = positions[sourcePosition];
+        newNode.data.lesson = "id from data base";
+
+        return newNode;
+      })
+
+
+      const edges = response.data[0].edges.map((edge) => {
+
+        const newEdge = {...edge};
+        newEdge.markerEnd.type = MarkerType.ArrowClosed
+
+        return newEdge;
+      })
+
+
+
+      setNodes(nodes);
+      setEdges(edges);
+
+    } catch (err) {
+      console.log(err);
     }
-    //className="courseName"
-
-
+  };
+  //className="courseName"
 
   return (
     <div className="leftSideMenuSection">
       <div className="leftSideMenuContainer">
         {courses.map((course, id) => (
-            <div className={props.mode===courses[id] ? "courseNameSelected" : "courseName"} onClick={() => selectCourse(id)} key={id}>{course}</div>
+          <div
+            className={
+              mode === courses[id] ? "courseNameSelected" : "courseName"
+            }
+            onClick={() => selectCourse(id)}
+            key={id}
+          >
+            {course}
+          </div>
         ))}
-
-
-
-
-        {/* <div onClick={(e) => selectCourse(e)} className={`${props.isActive? 'courseNameActive': 'courseName'}`}>Front End</div>
-        <div className="courseName">Back End</div>
-        <div className="courseName">Name</div>
-        <div className="courseName">Name</div> */}
+        
       </div>
     </div>
   );
