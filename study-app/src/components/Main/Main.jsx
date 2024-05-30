@@ -14,6 +14,7 @@ function Main() {
 	const [mode, setMode] = useState("");
 	const [nodes, setNodes] = useState([]);
 	const [edges, setEdges] = useState([]);
+	const [courseName, setCourseName] = useState("")
 
 	const [selectedNode, setSelectedNode] = useState("");
 
@@ -40,11 +41,11 @@ function Main() {
 
 	return (
 		<div className="mainContainer">
-			<LeftSideMenu mode={mode} setMode={setMode} courses={courses} setNodes={setNodes} setEdges={setEdges}/>
+			<LeftSideMenu mode={mode} setMode={setMode} courses={courses} setNodes={setNodes} setEdges={setEdges} setCourseName={setCourseName}/>
 
 			{/* {modes[mode] || <Welcome />} */}
 
-			{(nodes.length > 0 && edges.length > 0) ? <RoadMap nodes={nodes} edges={edges}/> : <Welcome />}
+			{(nodes.length > 0 && edges.length > 0) ? <RoadMap nodes={nodes} edges={edges} courseName={courseName}/> : <Welcome />}
 
 			<RightSideMenu
 				selectedNode={selectedNode}

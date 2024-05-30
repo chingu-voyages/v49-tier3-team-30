@@ -4,7 +4,7 @@ import { Position, MarkerType, } from "reactflow";
 
 //const courses = ['Front End', 'Back End', 'Name1', 'Name2']
 
-function LeftSideMenu({ courses, setMode, mode, setEdges, setNodes }) {
+function LeftSideMenu({ courses, setMode, mode, setEdges, setNodes, setCourseName }) {
   const selectCourse = async (i) => {
     console.log("Course selected", i);
     setMode(mode === courses[i] ? "" : courses[i]);
@@ -50,6 +50,8 @@ function LeftSideMenu({ courses, setMode, mode, setEdges, setNodes }) {
 
       setNodes(nodes);
       setEdges(edges);
+      setCourseName(courses[i])
+
 
     } catch (err) {
       console.log(err);

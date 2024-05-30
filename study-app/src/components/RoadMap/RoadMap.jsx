@@ -2,7 +2,7 @@ import { useState } from "react";
 import ReactFlow, { Handle } from "reactflow";
 import "reactflow/dist/style.css";
 
-function RoadMap({ nodes, edges }) {
+function RoadMap({ nodes, edges, courseName }) {
   const onNodeClick = (e) => {
     console.log(e.target.innerText); //prints label name
   };
@@ -50,7 +50,7 @@ function RoadMap({ nodes, edges }) {
   return (
     <div className="roadmapContainer">
       <div className="roadmapTitle">
-        <h1>Back End</h1>
+        <h1>{courseName}</h1>
       </div>
        <ReactFlow
         nodes={nodes}
