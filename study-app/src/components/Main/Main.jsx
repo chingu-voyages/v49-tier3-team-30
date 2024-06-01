@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-//import FrontEndRoadmap from "../FrontEndRoadmap/FrontEndRoadmap";
-//import BackEndRoadmap from "../BackEndRoadmap/BackEndRoadmap";
 import LeftSideMenu from "../LeftSideMenu/LeftSideMenu";
 import Welcome from "../Welcome/Welcome";
 import RightSideMenu from "../RightSideMenu/RightSideMenu";
@@ -46,11 +44,6 @@ function Main() {
     allCourses();
   }, []);
 
-  // const modes = {
-  // 	"Front End": <FrontEndRoadmap setSelectedNode={setSelectedNode} />,
-  // 	"Back End": <BackEndRoadmap setSelectedNode={setSelectedNode} />,
-  // };
-
   return (
     <div className="mainContainer">
       <LeftSideMenu
@@ -62,9 +55,7 @@ function Main() {
         setCourseName={setCourseName}
       />
 
-      {/* {modes[mode] || <Welcome />} */}
-
-      {nodes.length > 0 && edges.length > 0 ? (
+      {mode !== "" ? (
         <RoadMap
           nodes={nodes}
           edges={edges}

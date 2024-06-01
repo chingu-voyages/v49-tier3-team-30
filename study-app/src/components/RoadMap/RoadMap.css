@@ -2,3 +2,10 @@
     display: flex;
     justify-content: center;
 }
+
+
+.selected {
+    background-color: #00529D !important;
+    color: white !important;
+    width: 100px !important;
+}
