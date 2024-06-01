@@ -2,16 +2,14 @@ import { useState } from "react";
 import ReactFlow, { Handle } from "reactflow";
 import "reactflow/dist/style.css";
 
-function RoadMap({ nodes, edges, courseName }) {
-  const onNodeClick = (e) => {
-    console.log(e.target.innerText); //prints label name
-  };
-
+function RoadMap({ nodes, edges, courseName, getLessonDetails }) {
   const CustomNode = ({ data }) => {
     const [hovered, setHovered] = useState(false);
-    //console.log("dataaaaaa", data) //here I can find the id of lessons
+    console.log("dataaaaaa", data); //here I can find the id of lessons data?._id
+
     return (
       <div
+        id={data?._id}
         style={{
           width: "100px",
           color: "white",
@@ -52,11 +50,11 @@ function RoadMap({ nodes, edges, courseName }) {
       <div className="roadmapTitle">
         <h1>{courseName}</h1>
       </div>
-       <ReactFlow
+      <ReactFlow
         nodes={nodes}
         edges={edges}
         nodeTypes={nodeTypes}
-        onNodeClick={(e) => onNodeClick(e)}
+        onNodeClick={getLessonDetails}
         fitView
         zoomOnScroll={false}
         panOnDrag={false}
