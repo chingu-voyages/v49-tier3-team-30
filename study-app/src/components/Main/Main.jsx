@@ -36,6 +36,7 @@ function Main() {
       );
       console.log("lessonDetails", lessonDetails.data);
       setLessonData(lessonDetails.data);
+      alert(`${lessonDetails.data[0].name} clicked`);
     } catch (err) {
       console.log(err);
     }
