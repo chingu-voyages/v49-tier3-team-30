@@ -6,7 +6,7 @@ body {
 html * {
 	box-sizing: border-box;
 	list-style: none;
-	overflow: hidden;
+	/* overflow: hidden; */
 }
 
 #root {
