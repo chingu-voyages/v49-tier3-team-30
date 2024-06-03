@@ -1,5 +1,6 @@
 import axios from "axios";
 import { Position, MarkerType, } from "reactflow";
+const SERVER = import.meta.env.VITE_SERVER_URL
 
 
 //const courses = ['Front End', 'Back End', 'Name1', 'Name2']
@@ -12,9 +13,8 @@ function LeftSideMenu({ courses, setMode, mode, setEdges, setNodes, setCourseNam
 
     try {
       const response = await axios.get(
-        `http://localhost:3004/course/${courses[i]}`
-      );
-      console.log("response", response.data);     
+        `${SERVER}/course/${courses[i]}`
+      ); 
      
       const nodes = response.data[0].nodes.map((node) => {
 
