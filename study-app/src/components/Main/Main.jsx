@@ -4,7 +4,7 @@ import Welcome from "../Welcome/Welcome";
 import RightSideMenu from "../RightSideMenu/RightSideMenu";
 import axios from "axios";
 import RoadMap from "../RoadMap/RoadMap";
-const SERVER = import.meta.env.VITE_SERVER_URL
+const serverUrl = import.meta.env.VITE_SERVER_URL
 
 
 function Main() {
@@ -19,7 +19,7 @@ function Main() {
 
   const allCourses = async () => {
     try {
-      const response = await axios.get(`${SERVER}/course`);
+      const response = await axios.get(`${serverUrl}/course`);
 
       setCourses(response.data);
     } catch (err) {
@@ -32,7 +32,7 @@ function Main() {
       const id = e.target.id;
       if (!id) return;
       const lessonDetails = await axios.get(
-        `${SERVER}/lesson/${id}`
+        `${serverUrl}/lesson/${id}`
       );
       setLessonData(lessonDetails.data);
       alert(`${lessonDetails.data[0].name} clicked`);
