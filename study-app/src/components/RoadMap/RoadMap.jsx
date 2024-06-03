@@ -2,16 +2,14 @@ import { useState } from "react";
 import ReactFlow, { Handle } from "reactflow";
 import "reactflow/dist/style.css";
 
-function RoadMap({ nodes, edges, courseName }) {
-  const onNodeClick = (e) => {
-    console.log(e.target.innerText); //prints label name
-  };
-
+function RoadMap({ nodes, edges, courseName, getLessonDetails }) {
   const CustomNode = ({ data }) => {
     const [hovered, setHovered] = useState(false);
-    //console.log("dataaaaaa", data) //here I can find the id of lessons
+    //console.log("dataaaaaa", data); //here I can find the id of lessons data?._id
+
     return (
       <div
+        id={data?._id}
         style={{
           width: "100px",
           color: "white",
@@ -27,13 +25,14 @@ function RoadMap({ nodes, edges, courseName }) {
         }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
+        onClick={getLessonDetails}
       >
+        {data.label}
         <Handle
           type="target"
           position={data.targetPosition}
           style={{ background: "black" }}
         />
-        <div>{data.label}</div>
         <Handle
           type="source"
           position={data.sourcePosition}
@@ -47,16 +46,18 @@ function RoadMap({ nodes, edges, courseName }) {
     customNode: CustomNode,
   };
 
+  //we cannot use onNodeClick  because React Flow wraps each Custom node with additional div. This additional div does not have lesson id but due to event bubbling sometimes our Custom node div handles a click and causes getLessonDetail logic to work, and sometimes a click event is handled  by React Flow node wrap and getLessonDetail logic does not work. That is why getLessonDetails functios is hadles afte click event from React Flow div.
+
   return (
     <div className="roadmapContainer">
       <div className="roadmapTitle">
         <h1>{courseName}</h1>
       </div>
-       <ReactFlow
+      <ReactFlow
         nodes={nodes}
         edges={edges}
         nodeTypes={nodeTypes}
-        onNodeClick={(e) => onNodeClick(e)}
+        // onNodeClick={getLessonDetails}
         fitView
         zoomOnScroll={false}
         panOnDrag={false}
