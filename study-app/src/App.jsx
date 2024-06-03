@@ -5,6 +5,8 @@ import "./components/Navbar/Navbar.css";
 import "./components/LeftSideMenu/LeftSideMenu.css";
 import "./components/RoadMap/RoadMap.css";
 import "./components/Main/Main.css";
+import "./components/Login/Login.css";
+
 
 import Navbar from "./components/Navbar/Navbar";
 import Main from "./components/Main/Main";

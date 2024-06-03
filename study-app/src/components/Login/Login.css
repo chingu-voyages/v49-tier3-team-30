@@ -1,0 +1,26 @@
+.signUpLinkContainer {
+  display: flex;  
+  border: none;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: transparent;
+  color: #5d5c5c;
+  gap: 10px;
+  /* border: solid 2px #757575; */
+  
+  }
+
+  .signUpLink {
+    color:blue
+  }
+  .signUpLink:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  
+
+  input::placeholder {
+    font-size: 15px;
+  }
+  
