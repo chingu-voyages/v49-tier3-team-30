@@ -9,23 +9,24 @@ import "./components/Main/Main.css";
 import Navbar from "./components/Navbar/Navbar";
 import Main from "./components/Main/Main";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
+import SignUp from "./components/SignUp";
+import Login from "./components/Login";
 
 function App() {
-	return (
-		<div className="appContainer">
-			<Router>
-				<Navbar />
-				<Routes>
-					<Route path="/" element={<Main />} />
-					<Route path="/profile" element={<ProfilePage />} />
-					{/* 
-          <Route path="/login" element={<Login />}/>
-          <Route path="/forgot-password" element={<ForgotPassword />}/>
-          */}
-				</Routes>
-			</Router>
-		</div>
-	);
+  return (
+    <div className="appContainer">
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/" element={<Main />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/login" element={<Login />} />
+          {/* <Route path="/forgot-password" element={<ForgotPassword />} /> */}
+        </Routes>
+      </Router>
+    </div>
+  );
 }
 
 export default App;
