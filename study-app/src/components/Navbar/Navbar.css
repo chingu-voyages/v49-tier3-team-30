@@ -23,8 +23,11 @@
   margin-left: auto;
 }
 
+#logoutLink:hover {
+  cursor: pointer;
+}
 #logoutLink {
-  margin-left: auto;
+  font-size:large;
 }
 
 ul {
