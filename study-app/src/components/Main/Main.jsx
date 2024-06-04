@@ -4,8 +4,7 @@ import Welcome from "../Welcome/Welcome";
 import RightSideMenu from "../RightSideMenu/RightSideMenu";
 import axios from "axios";
 import RoadMap from "../RoadMap/RoadMap";
-const serverUrl = import.meta.env.VITE_SERVER_URL
-
+const serverUrl = import.meta.env.VITE_SERVER_URL;
 
 function Main() {
   const [courses, setCourses] = useState([]);
@@ -31,9 +30,7 @@ function Main() {
     try {
       const id = e.target.id;
       if (!id) return;
-      const lessonDetails = await axios.get(
-        `${serverUrl}/lesson/${id}`
-      );
+      const lessonDetails = await axios.get(`${serverUrl}/lesson/${id}`);
       setLessonData(lessonDetails.data);
       alert(`${lessonDetails.data[0].name} clicked`);
     } catch (err) {
@@ -71,9 +68,6 @@ function Main() {
         selectedNode={selectedNode}
         setSelectedNode={setSelectedNode}
       />
-
-      {/* {mode === 'Front End' && <FrontEndRoadmap/>}
-      {!mode && <Welcome/>} */}
     </div>
   );
 }

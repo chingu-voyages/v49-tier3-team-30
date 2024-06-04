@@ -3,12 +3,19 @@ import "./Navbar";
 import axios from "axios";
 const serverUrl = import.meta.env.VITE_SERVER_URL;
 
+import user from "../../img/user.png";
+import logout from "../../img/log-out.png";
+import { useState } from "react";
+
 function Navbar({ authState, setAuthState }) {
   const handleLogout = async () => {
     const response = await axios.get(`${serverUrl}/user/logout`);
     setAuthState({ username: "", id: 0, status: false });
     console.log("response", response.data);
   };
+
+  const [open, setOpen] = useState(false);
+  const username = authState.username;
 
   return (
     <div className="navbarSection">
@@ -17,30 +24,42 @@ function Navbar({ authState, setAuthState }) {
       </Link>
 
       {authState.status ? (
-        <ul id="logoutLink">
-          <div>
-            <div className="navLink">Account ▼</div>
+        <div className="menu-container">
+          <div
+            className="menu-trigger"
+            onClick={() => {
+              setOpen(!open);
+            }}
+          >
+            <div className="account-trigger navLink">
+              {username ? `Hello, ${username}` : ""} ▾
+            </div>
+            <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
+              <ul>
+                <DropdownItem img={user} text={"My Profile"} />
+                <DropdownItem
+                  img={logout}
+                  text={<spin onClick={handleLogout}>logout</spin>}
+                />
+              </ul>
+            </div>
           </div>
-
-          <ul className="dropdown">
-            <li>
-              <Link className="navLink" to="/profile">
-                Profile
-              </Link>
-            </li>
-            {authState.status && (
-              <li className="navLink" onClick={handleLogout}>
-                Logout
-              </li>
-            )}
-          </ul>
-        </ul>
-      ) : (        
+        </div>
+      ) : (
         <Link to="login" className="navLink" id="loginLink">
           Login
         </Link>
       )}
     </div>
+  );
+}
+
+function DropdownItem(props) {
+  return (
+    <li className="dropdownItem">
+      <img src={props.img}></img>
+      <a>{props.text}</a>
+    </li>
   );
 }
 

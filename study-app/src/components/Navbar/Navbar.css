@@ -1,8 +1,10 @@
 .navbarSection {
   background-color: #e4dfdf;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding: 1rem 0 1rem 1rem;
   display: flex;
+  height: 80px;
+  align-items: center;
 }
 
 .navLink {
@@ -14,7 +16,7 @@
 }
 
 .navLink:hover {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 #loginLink {
@@ -23,4 +25,89 @@
 
 #logoutLink {
   margin-left: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.account-trigger {
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 10px 20px;
+  width: 200px;
+}
+.dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: 20px;
+  height: 20px;
+  width: 20px;
+  background: #fff;
+  transform: rotate(45deg);
+}
+
+.dropdown-menu.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: 500ms ease;
+}
+
+.dropdown-menu.inactive {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20);
+  transition: 500ms ease;
+}
+
+.dropdown-menu ul {
+  padding-inline-start: 10px;
+}
+
+.dropdown-menu ul li {
+  padding: 10px 0;
+  border-top: 1px solid rgba(219, 218, 218, 0.486);
+}
+
+.dropdown-menu ul li:hover a {
+  color: red;
+  cursor: pointer;
+}
+
+.dropdown-menu ul li:hover img {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.dropdownItem {
+  display: flex;
+  margin: 10px auto;
+}
+
+.dropdownItem img {
+  max-width: 20px;
+  margin-right: 10px;
+  opacity: 0.5;
+  transition: 500ms;
+}
+.dropdownItem a {
+  max-width: 100px;
+  margin-left: 10px;
+  transition: 500ms;
 }
