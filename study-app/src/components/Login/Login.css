@@ -16,11 +16,27 @@
   .signUpLink:hover {
     text-decoration: underline;
     cursor: pointer;
-  }
-
-  
+  }  
 
   input::placeholder {
     font-size: 15px;
+  }
+  input:focus {
+    border: 1px solid transparent;
+  }
+  .input {
+    border: 1px solid transparent;
+  }
+
+  .inputEmpty {
+    border: 1px solid red;
+  }
+
+  .forgotPasswordLink {
+    text-decoration: none;
+  }
+
+  .submitBtn:hover {
+    cursor: pointer;
   }
   

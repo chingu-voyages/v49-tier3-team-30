@@ -58,6 +58,7 @@ function SignUp() {
             name="username"
             type="text"
             placeholder="Username..."
+            
           />
           <input
             onChange={handleChange}

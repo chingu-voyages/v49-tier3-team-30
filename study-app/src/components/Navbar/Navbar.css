@@ -1,14 +1,26 @@
 .navbarSection {
-	background-color: #e4dfdf;
-	margin-bottom: 20px;
-	padding: 1rem 0 1rem 1rem;
-	display: flex;
+  background-color: #e4dfdf;
+  margin-bottom: 20px;
+  padding: 1rem 0 1rem 1rem;
+  display: flex;
 }
 
 .navLink {
-	margin-right: 1rem;
+  margin-right: 1rem;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(48, 47, 47);
+}
+
+.navLink:hover {
+	cursor: pointer;
 }
 
 #loginLink {
-	margin-left: auto;
+  margin-left: auto;
+}
+
+#logoutLink {
+  margin-left: auto;
 }
