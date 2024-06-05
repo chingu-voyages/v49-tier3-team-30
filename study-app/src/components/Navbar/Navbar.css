@@ -88,7 +88,7 @@ a {
   border-top: 1px solid rgba(219, 218, 218, 0.486);
 }
 
-.dropdown-menu ul li:hover p {
+.dropdown-menu ul li:hover .dropdown-menu-links {
   color: red;
   cursor: pointer;
 }
@@ -109,7 +109,7 @@ a {
   opacity: 0.5;
   transition: 500ms;
 }
-.dropdownItem p {
+.dropdown-menu-links {
   max-width: 100px;
   transition: 500ms;
 }

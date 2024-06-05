@@ -36,10 +36,10 @@ function Navbar({ authState, setAuthState }) {
             </div>
             <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
               <ul>
-                <DropdownItem img={user} text={<Link to="profile"> My Profile </Link>} />
+                <DropdownItem img={user} text={<div className="dropdown-menu-links"> My Profile </div>} />
                 <DropdownItem
                   img={logout}
-                  text={<p onClick={handleLogout}>logout</p>}
+                  text={<div className="dropdown-menu-links" onClick={handleLogout}>logout</div>}
                 />
               </ul>
             </div>
@@ -58,7 +58,7 @@ function DropdownItem(props) {
   return (
     <li className="dropdownItem">
       <img src={props.img}></img>
-      <p>{props.text}</p>
+      <div>{props.text}</div>
     </li>
   );
 }
