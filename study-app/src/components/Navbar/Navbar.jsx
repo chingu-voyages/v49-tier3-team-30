@@ -21,16 +21,15 @@ function Navbar({ authState, setAuthState }) {
   //functionality to close dropdown menu if click outside of it-------------
   useEffect(() => {
     let handler = (e) => {
-      if (!menuRef.current.contains(e.target)) {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
         setOpen(false);
-        console.log(menuRef.current);
       }
     };
     document.addEventListener("mousedown", handler);
     return () => {
       document.removeEventListener("mousedown", handler);
     };
-  });
+  }, [menuRef]);
   //---------------------------------------------------------------------------
 
   return (
