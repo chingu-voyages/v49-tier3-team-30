@@ -34,9 +34,13 @@ ul {
   list-style: none;
 }
 
-a {
-  text-decoration: none;
+h3{
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;  
+  line-height: 1.2rem;
 }
+
 
 .account-trigger {
   position: absolute;
@@ -100,7 +104,6 @@ a {
 
 .dropdownItem {
   display: flex;
-  margin: 10px auto;
 }
 
 .dropdownItem img {
@@ -109,7 +112,13 @@ a {
   opacity: 0.5;
   transition: 500ms;
 }
+
 .dropdown-menu-links {
   max-width: 100px;
   transition: 500ms;
+  
+}
+
+.dropdown-menu-links:hover {
+  cursor: pointer;
 }
