@@ -1,23 +1,37 @@
-
 import "./Navbar";
 import axios from "axios";
-const serverUrl = import.meta.env.VITE_SERVER_URL;
 import { useNavigate, Link } from "react-router-dom";
-
 import user from "../../img/user.png";
 import logout from "../../img/log-out.png";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+const serverUrl = import.meta.env.VITE_SERVER_URL;
 
 function Navbar({ authState, setAuthState }) {
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
+  const username = authState.username;
+  let menuRef = useRef();
+
   const handleLogout = async () => {
     const response = await axios.get(`${serverUrl}/user/logout`);
     setAuthState({ username: "", id: 0, status: false });
     console.log("response", response.data);
   };
 
-  const [open, setOpen] = useState(false);
-  const username = authState.username;
+  //functionality to close dropdown menu if click outside of it-------------
+  useEffect(() => {
+    let handler = (e) => {
+      if (!menuRef.current.contains(e.target)) {
+        setOpen(false);
+        console.log(menuRef.current);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => {
+      document.removeEventListener("mousedown", handler);
+    };
+  });
+  //---------------------------------------------------------------------------
 
   return (
     <div className="navbarSection">
@@ -26,23 +40,36 @@ function Navbar({ authState, setAuthState }) {
       </Link>
 
       {authState.status ? (
-        <div className="menu-container">
+        <div className="menu-container" ref={menuRef}>
           <div
             className="menu-trigger"
             onClick={() => {
               setOpen(!open);
             }}
           >
-            <div className="account-trigger navLink">
-              Account ▾
-            </div>
+            <div className="account-trigger navLink">Account ▾</div>
             <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
-            <h3>{username ? `Hello, ${username}` : ""}! </h3>
+              <h3>{username ? `Hello, ${username}` : ""}! </h3>
               <ul>
-                <DropdownItem img={user} text={<div className="dropdown-menu-links" onClick={() => navigate('/profile')}> My Profile </div>} />
+                <DropdownItem
+                  img={user}
+                  text={
+                    <div
+                      className="dropdown-menu-links"
+                      onClick={() => navigate("/profile")}
+                    >
+                      {" "}
+                      My Profile{" "}
+                    </div>
+                  }
+                />
                 <DropdownItem
                   img={logout}
-                  text={<div className="dropdown-menu-links" onClick={handleLogout}>Logout</div>}
+                  text={
+                    <div className="dropdown-menu-links" onClick={handleLogout}>
+                      Logout
+                    </div>
+                  }
                 />
               </ul>
             </div>
