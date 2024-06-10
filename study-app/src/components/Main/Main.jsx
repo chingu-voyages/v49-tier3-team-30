@@ -13,8 +13,7 @@ function Main() {
   const [edges, setEdges] = useState([]);
   const [courseName, setCourseName] = useState("");
   const [lessonData, setLessonData] = useState([]);
-
-  const [selectedNode, setSelectedNode] = useState("");
+  const [showLessonData, setShowLessonData] = useState(false)
 
   const allCourses = async () => {
     try {
@@ -31,8 +30,10 @@ function Main() {
       const id = e.target.id;
       if (!id) return;
       const lessonDetails = await axios.get(`${serverUrl}/lesson/${id}`);
-      setLessonData(lessonDetails.data);
-      alert(`${lessonDetails.data[0].name} clicked`);
+      console.log("lessonDetails.data", lessonDetails.data)
+      setLessonData(lessonDetails.data[0]);
+      //alert(`${lessonDetails.data[0].name} clicked`);
+      setShowLessonData(true)
     } catch (err) {
       console.log(err);
     }
@@ -64,10 +65,11 @@ function Main() {
         <Welcome />
       )}
 
-      <RightSideMenu
-        selectedNode={selectedNode}
-        setSelectedNode={setSelectedNode}
-      />
+      {<RightSideMenu
+        lessonData={lessonData}
+        showLessonData={showLessonData}
+        setShowLessonData={setShowLessonData}
+      />}
     </div>
   );
 }
