@@ -1,13 +1,6 @@
-.rightSideMenu {
-    background-color: white;    
-    position: absolute;
-    right: -30%;
-    transition: right 0.5s;
-	overflow: hidden;
-    /* box-shadow: -2px 0 5px rgba(0,0,0,0.1); */
-}
 
-.rightSideMenu.active {
+.rightSideMenu {
+	position: absolute;
     right: 0;
 	background-color: rgba(30, 29, 29, 0.501);
 	z-index: 100;
@@ -15,8 +8,10 @@
     inset: 0;	
     height: 100vh;
 	font-size: 1.5rem;
+	/* box-shadow: -2px 0 5px rgba(186, 27, 27, 0.1); */
+	overflow: hidden;
+	/* transition: right 0.5s; */
 }
-
 
 
 .urlsContainer {
@@ -27,7 +22,6 @@
 	font-size: 1.5rem;
 	text-decoration: none;
 	color: #003366;
-
 }
 
 .urlsContainer a:hover {
@@ -77,13 +71,7 @@
 	display: flex;
 	align-items: center;
 	gap: 30px;
-
 }
-
-/* .checkmark {
-	width: 30px;
-	height: 30px;
-} */
 
 
 

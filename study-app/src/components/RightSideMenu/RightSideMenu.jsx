@@ -7,11 +7,10 @@ const serverUrl = import.meta.env.VITE_SERVER_URL;
 
 export default function RightSideMenu({
   lessonData,
-  showLessonData,
-  setShowLessonData, 
+  setLessonData
 }) {
 
-	const [completed, setCompleted] = useState(false)
+	const [completed, setCompleted] = useState(lessonData.isCompleted)
 
   let menuRef = useRef();
 
@@ -34,7 +33,7 @@ export default function RightSideMenu({
   useEffect(() => {
     let handler = (e) => {
       if (menuRef.current && !menuRef.current.contains(e.target)) {
-        setShowLessonData(false);
+        setLessonData(null);
       }
     };
     document.addEventListener("mousedown", handler);
@@ -45,11 +44,11 @@ export default function RightSideMenu({
   //---------------------------------------------------------------------------
 
   return (
-    <div className={`rightSideMenu ${showLessonData ? "active" : ""}`}>
+    <div className="rightSideMenu">
       <div className="lessonContainer" ref={menuRef}>
         <div className="closeRightMenuContainer">
           <MdClose
-            onClick={() => setShowLessonData(false)}
+            onClick={() => setLessonData(null)}
             className="closeRightMenuButton"
           />
         </div>
@@ -69,7 +68,7 @@ export default function RightSideMenu({
           lesson completed
           <input
             type="checkbox"
-            // checked={completed}
+            checked={completed}
             onChange={() => handleLessonComplition(lessonData?._id)}
           ></input>
           <span className="checkmark"></span>
