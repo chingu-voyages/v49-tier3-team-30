@@ -1,12 +1,35 @@
 import { useState } from "react";
 import ReactFlow, { Handle } from "reactflow";
 import "reactflow/dist/style.css";
+import axios from "axios";
+import RightSideMenu from "../RightSideMenu/RightSideMenu";
+const serverUrl = import.meta.env.VITE_SERVER_URL;
 
-function RoadMap({ nodes, edges, courseName, getLessonDetails }) {
+
+
+function RoadMap({ nodes, edges, courseName }) {
+
+  const [lessonData, setLessonData] = useState(null);
+
+
+  const getLessonDetails = async (e) => {
+    try {
+      const id = e.target.id;
+      if (!id) return;
+      const lessonDetails = await axios.get(`${serverUrl}/lesson/${id}`);
+      console.log("lessonDetails.data", lessonDetails.data)
+      setLessonData(lessonDetails.data[0]);
+      console.log("setLessonData", lessonData)
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+
+
   const CustomNode = ({ data }) => {
     const [hovered, setHovered] = useState(false);
     //console.log("dataaaaaa", data); //here I can find the id of lessons data?._id
-
     return (
       <div
         id={data?._id}
@@ -62,6 +85,7 @@ function RoadMap({ nodes, edges, courseName, getLessonDetails }) {
         zoomOnScroll={false}
         panOnDrag={false}
       />
+      {lessonData && <RightSideMenu lessonData={lessonData} setLessonData={setLessonData} />}
     </div>
   );
 }

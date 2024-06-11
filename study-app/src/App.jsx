@@ -6,6 +6,8 @@ import "./components/LeftSideMenu/LeftSideMenu.css";
 import "./components/RoadMap/RoadMap.css";
 import "./components/Main/Main.css";
 import "./components/Login/Login.css";
+import "./components/Colors/Colors.css";
+
 
 import Navbar from "./components/Navbar/Navbar";
 import Main from "./components/Main/Main";
@@ -14,6 +16,7 @@ import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Colors from "./components/Colors/Colors";
 const serverUrl = import.meta.env.VITE_SERVER_URL;
 
 function App() {
@@ -48,6 +51,8 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/" element={<Main />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/colors" element={<Colors />} />
+
           <Route
             path="/login"
             element={<Login setAuthState={setAuthState} />}

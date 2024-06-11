@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import LeftSideMenu from "../LeftSideMenu/LeftSideMenu";
 import Welcome from "../Welcome/Welcome";
-import RightSideMenu from "../RightSideMenu/RightSideMenu";
+
 import axios from "axios";
 import RoadMap from "../RoadMap/RoadMap";
 const serverUrl = import.meta.env.VITE_SERVER_URL;
@@ -12,10 +12,9 @@ function Main() {
   const [nodes, setNodes] = useState([]);
   const [edges, setEdges] = useState([]);
   const [courseName, setCourseName] = useState("");
-  const [lessonData, setLessonData] = useState([]);
-
-  const [selectedNode, setSelectedNode] = useState("");
-
+ 
+  
+  
   const allCourses = async () => {
     try {
       const response = await axios.get(`${serverUrl}/course`);
@@ -26,18 +25,7 @@ function Main() {
     }
   };
 
-  const getLessonDetails = async (e) => {
-    try {
-      const id = e.target.id;
-      if (!id) return;
-      const lessonDetails = await axios.get(`${serverUrl}/lesson/${id}`);
-      setLessonData(lessonDetails.data);
-      alert(`${lessonDetails.data[0].name} clicked`);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
+  
   useEffect(() => {
     allCourses();
   }, []);
@@ -58,16 +46,12 @@ function Main() {
           nodes={nodes}
           edges={edges}
           courseName={courseName}
-          getLessonDetails={getLessonDetails}
         />
       ) : (
         <Welcome />
       )}
 
-      <RightSideMenu
-        selectedNode={selectedNode}
-        setSelectedNode={setSelectedNode}
-      />
+      
     </div>
   );
 }

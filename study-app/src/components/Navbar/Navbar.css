@@ -57,6 +57,7 @@ h3{
   border-radius: 8px;
   padding: 10px 20px;
   width: 200px;
+  z-index: 10;
 }
 .dropdown-menu::before {
   content: "";

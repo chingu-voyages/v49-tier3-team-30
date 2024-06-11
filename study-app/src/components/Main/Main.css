@@ -2,6 +2,8 @@
 	display: flex;
 	flex-direction: row;
 	gap: 20px;
+	position: relative;
+	overflow: hidden;
 }
 
 .roadmapContainer {
