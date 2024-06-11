@@ -1,16 +1,34 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "../Main/Main.css";
 import "./RightSideMenu.css";
 import { MdClose } from "react-icons/md";
+import axios from "axios";
+const serverUrl = import.meta.env.VITE_SERVER_URL;
 
 export default function RightSideMenu({
   lessonData,
   showLessonData,
-  setShowLessonData,
+  setShowLessonData, 
 }) {
+
+	const [completed, setCompleted] = useState(false)
+
   let menuRef = useRef();
-  //   const [open, setOpen] = useState(false);
+
   console.log("RightSideMenulessonData", lessonData);
+
+  const handleLessonComplition = async (id) => {
+    try {
+      axios
+        .put(`${serverUrl}/lesson/checkbox/${id}`, { isCompleted: !completed })
+        .then((response) => {
+          console.log("response", response.data);
+        });
+      setCompleted(!completed);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   //functionality to close dropdown menu if click outside of it-------------
   useEffect(() => {
@@ -27,10 +45,7 @@ export default function RightSideMenu({
   //---------------------------------------------------------------------------
 
   return (
-    <div
-      className={`rightSideMenu ${showLessonData ? "active" : ""}`}
-      
-    >
+    <div className={`rightSideMenu ${showLessonData ? "active" : ""}`}>
       <div className="lessonContainer" ref={menuRef}>
         <div className="closeRightMenuContainer">
           <MdClose
@@ -41,8 +56,24 @@ export default function RightSideMenu({
         <div className="lessonContent">
           <div className="lessonTitle">{lessonData?.name}</div>
           <div className="lessonDescription">{lessonData?.desc}</div>
-          <div className="urlsContainer">{(lessonData?.urls || []).map((url, i) => (<a href={url} key={`lessonUrl=${i}`} target="_blank">{url} </a>))}</div>
+          <div className="urlsContainer">
+            {(lessonData?.urls || []).map((url, i) => (
+              <a href={url} key={`lessonUrl=${i}`} target="_blank">
+                {url}
+              </a>
+            ))}
+          </div>
         </div>
+
+        <label className="container">
+          lesson completed
+          <input
+            type="checkbox"
+            // checked={completed}
+            onChange={() => handleLessonComplition(lessonData?._id)}
+          ></input>
+          <span className="checkmark"></span>
+        </label>
       </div>
     </div>
   );

@@ -14,7 +14,7 @@ function Main() {
   const [courseName, setCourseName] = useState("");
   const [lessonData, setLessonData] = useState([]);
   const [showLessonData, setShowLessonData] = useState(false)
-
+  
   const allCourses = async () => {
     try {
       const response = await axios.get(`${serverUrl}/course`);
@@ -65,11 +65,12 @@ function Main() {
         <Welcome />
       )}
 
-      {<RightSideMenu
+      <RightSideMenu
         lessonData={lessonData}
         showLessonData={showLessonData}
         setShowLessonData={setShowLessonData}
-      />}
+        
+      />
     </div>
   );
 }

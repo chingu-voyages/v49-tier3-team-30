@@ -3,10 +3,11 @@ import ReactFlow, { Handle } from "reactflow";
 import "reactflow/dist/style.css";
 
 function RoadMap({ nodes, edges, courseName, getLessonDetails }) {
+
+  
   const CustomNode = ({ data }) => {
     const [hovered, setHovered] = useState(false);
     //console.log("dataaaaaa", data); //here I can find the id of lessons data?._id
-
     return (
       <div
         id={data?._id}
