@@ -6,7 +6,7 @@ import axios from "axios";
 import RoadMap from "../RoadMap/RoadMap";
 const serverUrl = import.meta.env.VITE_SERVER_URL;
 
-function Main() {
+function Main({ authState }) {
   const [courses, setCourses] = useState([]);
   const [mode, setMode] = useState("");
   const [nodes, setNodes] = useState([]);
@@ -46,6 +46,7 @@ function Main() {
           nodes={nodes}
           edges={edges}
           courseName={courseName}
+          authState={authState}
         />
       ) : (
         <Welcome />

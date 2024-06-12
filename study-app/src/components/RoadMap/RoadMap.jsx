@@ -7,7 +7,7 @@ const serverUrl = import.meta.env.VITE_SERVER_URL;
 
 
 
-function RoadMap({ nodes, edges, courseName }) {
+function RoadMap({ nodes, edges, courseName, authState }) {
 
   const [lessonData, setLessonData] = useState(null);  
   const getLessonDetails = async (e) => {
@@ -84,7 +84,7 @@ function RoadMap({ nodes, edges, courseName }) {
         zoomOnScroll={false}
         panOnDrag={false}
       />
-      {lessonData && <RightSideMenu lessonData={lessonData} setLessonData={setLessonData} />}
+      {lessonData && <RightSideMenu lessonData={lessonData} setLessonData={setLessonData} authState={authState} />}
     </div>
   );
 }

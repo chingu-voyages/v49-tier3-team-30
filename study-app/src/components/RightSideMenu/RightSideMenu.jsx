@@ -7,10 +7,10 @@ const serverUrl = import.meta.env.VITE_SERVER_URL;
 
 export default function RightSideMenu({
   lessonData,
-  setLessonData
+  setLessonData,
+  authState,
 }) {
-
-	const [completed, setCompleted] = useState(lessonData.isCompleted)
+  const [completed, setCompleted] = useState(lessonData.isCompleted);
 
   let menuRef = useRef();
 
@@ -63,16 +63,17 @@ export default function RightSideMenu({
             ))}
           </div>
         </div>
-
-        <label className="container">
-          lesson completed
-          <input
-            type="checkbox"
-            checked={completed}
-            onChange={() => handleLessonComplition(lessonData?._id)}
-          ></input>
-          <span className="checkmark"></span>
-        </label>
+        {authState.status && (
+          <label className="container">
+            lesson completed
+            <input
+              type="checkbox"
+              checked={completed}
+              onChange={() => handleLessonComplition(lessonData?._id)}
+            ></input>
+            <span className="checkmark"></span>
+          </label>
+        )}
       </div>
     </div>
   );
