@@ -130,6 +130,14 @@ h3{
 .logo {
   height: 30px;
   width: 30px;
+  
+}
 
-  /* background-color: red; */
+.arrow {
+  color: #D97B00;
+}
+
+.pin {
+  color: #D97B00;
+  /* background-color: black; */
 }

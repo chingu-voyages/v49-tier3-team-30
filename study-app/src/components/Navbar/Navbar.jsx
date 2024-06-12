@@ -4,7 +4,9 @@ import { useNavigate, Link } from "react-router-dom";
 import user from "../../img/user.png";
 import logout from "../../img/log-out.png";
 import { useState, useEffect, useRef } from "react";
-import { GiHorizonRoad } from "react-icons/gi";
+import { GiHorizonRoad, GiMountainRoad  } from "react-icons/gi";
+import { TbRoadSign } from "react-icons/tb";
+import { FaMapLocationDot } from "react-icons/fa6";
 const serverUrl = import.meta.env.VITE_SERVER_URL;
 
 function Navbar({ authState, setAuthState }) {
@@ -36,7 +38,10 @@ function Navbar({ authState, setAuthState }) {
   return (
     <div className="navbarSection">
       <Link to="" className="navLink">
-          <div>road.map ( <GiHorizonRoad className="logo"/> )</div>
+          {/* <div>road.map ( <GiHorizonRoad className="logo"/> )</div> */}
+          {/* <div>Road<TbRoadSign className="logo arrow"/>Map  </div> */}
+          <div>road.map ( <GiMountainRoad className="logo"/> )</div>
+          {/* <div><FaMapLocationDot className="logo pin"/>  RoadMap </div> */}          
       </Link>
 
       {authState.status ? (
