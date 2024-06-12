@@ -3,28 +3,24 @@ import ReactFlow, { Handle } from "reactflow";
 import "reactflow/dist/style.css";
 import axios from "axios";
 import RightSideMenu from "../RightSideMenu/RightSideMenu";
+import mapBackgr from "../../assets/map.jpg";
 const serverUrl = import.meta.env.VITE_SERVER_URL;
 
-
-
 function RoadMap({ nodes, edges, courseName, authState }) {
-
-  const [lessonData, setLessonData] = useState(null);  
+  const [lessonData, setLessonData] = useState(null);
   const getLessonDetails = async (e) => {
     try {
       const id = e.target.id;
       if (!id) return;
       const lessonDetails = await axios.get(`${serverUrl}/lesson/${id}`);
 
-      console.log("lessonDetails.data", lessonDetails.data)
+      console.log("lessonDetails.data", lessonDetails.data);
       setLessonData(lessonDetails.data[0]);
-      console.log("setLessonData", lessonData)
+      console.log("setLessonData", lessonData);
     } catch (err) {
       console.log(err);
     }
   };
-
-
 
   const CustomNode = ({ data }) => {
     const [hovered, setHovered] = useState(false);
@@ -71,20 +67,29 @@ function RoadMap({ nodes, edges, courseName, authState }) {
   //we cannot use onNodeClick  because React Flow wraps each Custom node with additional div. This additional div does not have lesson id but due to event bubbling sometimes our Custom node div handles a click and causes getLessonDetail logic to work, and sometimes a click event is handled  by React Flow node wrap and getLessonDetail logic does not work. That is why getLessonDetails functios is hadles afte click event from React Flow div.
 
   return (
-    <div className="roadmapContainer">
+    <div className="roadmapContainer" style={{ backgroundImage: "map.jpg" }}>
       <div className="roadmapTitle">
         <h1>{courseName}</h1>
       </div>
-      <ReactFlow
-        nodes={nodes}
-        edges={edges}
-        nodeTypes={nodeTypes}
-        // onNodeClick={getLessonDetails}
-        fitView
-        zoomOnScroll={false}
-        panOnDrag={false}
-      />
-      {lessonData && <RightSideMenu lessonData={lessonData} setLessonData={setLessonData} authState={authState} />}
+      {/* <div className="graphWrapper"> */}
+        <ReactFlow
+          nodes={nodes}
+          edges={edges}
+          nodeTypes={nodeTypes}
+          // onNodeClick={getLessonDetails}
+          fitView
+          zoomOnScroll={false}
+          panOnDrag={false}
+        />
+      {/* </div> */}
+      {lessonData && (
+        <RightSideMenu
+          lessonData={lessonData}
+          setLessonData={setLessonData}
+          authState={authState}
+        />
+      )}
+      {/* <img className="map_background" src={mapBackgr} /> */}
     </div>
   );
 }
