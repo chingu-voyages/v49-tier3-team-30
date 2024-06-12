@@ -9,14 +9,13 @@ const serverUrl = import.meta.env.VITE_SERVER_URL;
 
 function RoadMap({ nodes, edges, courseName }) {
 
-  const [lessonData, setLessonData] = useState(null);
-
-
+  const [lessonData, setLessonData] = useState(null);  
   const getLessonDetails = async (e) => {
     try {
       const id = e.target.id;
       if (!id) return;
       const lessonDetails = await axios.get(`${serverUrl}/lesson/${id}`);
+
       console.log("lessonDetails.data", lessonDetails.data)
       setLessonData(lessonDetails.data[0]);
       console.log("setLessonData", lessonData)
