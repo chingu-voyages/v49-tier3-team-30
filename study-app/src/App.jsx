@@ -49,7 +49,7 @@ function App() {
         <Navbar authState={authState} setAuthState={setAuthState} />
         <Routes>
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/" element={<Main />} />
+          <Route path="/" element={<Main authState={authState}/>} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/colors" element={<Colors />} />
 

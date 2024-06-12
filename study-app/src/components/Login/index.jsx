@@ -31,11 +31,13 @@ function Login({ setAuthState }) {
 
     try {
       const response = await axios.post(`${serverUrl}/user/login`, inputData);
+      console.log("response from post.login", response.data)
       setAuthState({
         username: response.data.username,
-        id: response.data.userId,
+        id: response.data.userId, //"6667f4b39da6637d5ed0994d"
         status: true,
       });
+
       setInputData({ username: "", password: "" });
       navigate("/");
     } catch (err) {
