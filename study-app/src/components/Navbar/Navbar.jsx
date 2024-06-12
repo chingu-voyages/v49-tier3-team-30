@@ -4,6 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import user from "../../img/user.png";
 import logout from "../../img/log-out.png";
 import { useState, useEffect, useRef } from "react";
+import { GiHorizonRoad } from "react-icons/gi";
 const serverUrl = import.meta.env.VITE_SERVER_URL;
 
 function Navbar({ authState, setAuthState }) {
@@ -35,7 +36,7 @@ function Navbar({ authState, setAuthState }) {
   return (
     <div className="navbarSection">
       <Link to="" className="navLink">
-        Home
+          <div>road.map ( <GiHorizonRoad className="logo"/> )</div>
       </Link>
 
       {authState.status ? (

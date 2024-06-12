@@ -7,8 +7,10 @@ function Login({ setAuthState }) {
   const navigate = useNavigate();
   const [inputData, setInputData] = useState({ username: "", password: "" });
   const [errors, setErrors] = useState({ username: false, password: false });
+  const [showMessage, setShowMessage] = useState(false);
 
   const handleChange = (e) => {
+    setShowMessage(false);
     const { value, name } = e.target;
     setInputData((prev) => ({ ...prev, [name]: value }));
     if (value.trim() !== "") {
@@ -31,15 +33,19 @@ function Login({ setAuthState }) {
 
     try {
       const response = await axios.post(`${serverUrl}/user/login`, inputData);
-      console.log("response from post.login", response.data)
-      setAuthState({
-        username: response.data.username,
-        id: response.data.userId, //"6667f4b39da6637d5ed0994d"
-        status: true,
-      });
+      console.log("response from post.login", response.data.username); //message : "Username or Password is Incorrect"
 
-      setInputData({ username: "", password: "" });
-      navigate("/");
+      const handleCorrectAuth = () => {
+        console.log("-------------------------------");
+        setAuthState({
+          username: response.data.username,
+          id: response.data.userId, //"6667f4b39da6637d5ed0994d"
+          status: true,
+        });
+        setInputData({ username: "", password: "" });
+        navigate("/");
+      };
+      response.data.username ? handleCorrectAuth() : setShowMessage(true);
     } catch (err) {
       console.error(err);
     }
@@ -67,9 +73,13 @@ function Login({ setAuthState }) {
             className={errors.password ? "inputEmpty" : "input"}
           />
 
-          <Link to="forgot-password" className="forgotPasswordLink">
+          
+            <div className="textMessage">{showMessage ? "Incorrect Username or Password" : "" }</div>
+          
+
+          {/* {showMessage ? <div className="textMessage">Username or Password is Incorrect</div> : <Link to="forgot-password" className="forgotPasswordLink">
             Forgot Password
-          </Link>
+          </Link>} */}
 
           <button className="submitBtn" type="submit">
             Login

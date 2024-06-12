@@ -1,10 +1,12 @@
 .navbarSection {
   background-color: #e4dfdf;
+  /* background-color: #8A9A5B; */
   margin-bottom: 10px;
   padding: 1rem 0 1rem 1rem;
   display: flex;
   height: 80px;
   align-items: center;
+  
 }
 
 .navLink {
@@ -13,6 +15,7 @@
   font-size: 20px;
   font-weight: 600;
   color: rgb(48, 47, 47);
+  /* color: white */
 }
 
 .navLink:hover {
@@ -122,4 +125,11 @@ h3{
 
 .dropdown-menu-links:hover {
   cursor: pointer;
+}
+
+.logo {
+  height: 30px;
+  width: 30px;
+
+  /* background-color: red; */
 }

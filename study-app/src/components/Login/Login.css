@@ -10,6 +10,7 @@
   
   }
 
+
   .signUpLink {
     color:blue
   }
@@ -38,5 +39,10 @@
 
   .submitBtn:hover {
     cursor: pointer;
+  }
+
+  .textMessage {
+    color: red;
+    height: 20px
   }
   
