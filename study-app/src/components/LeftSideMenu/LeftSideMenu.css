@@ -1,6 +1,11 @@
 .leftSideMenuSection {
-  background-color: #e4dfdf;
+  /* background-color: #e4dfdf; */
+  /* background-color: rgba(227, 222, 222, 0.886); */
+  background-color: rgba(239, 235, 235, 0.886);
+  /* border: #516053 solid 1px; */
+  box-shadow: 2px 0 5px rgba(71, 25, 25, 0.5);
   width: 15%;
+  height: 86vh;
 }
 
 .leftSideMenuContainer {
@@ -10,32 +15,40 @@
   gap: 10px;
   padding-top: 30px;
   align-items: center;
+  font-size: 1rem;  
+  /* font-weight: 600; */
+  /* font-family: 'Special Elite', cursive; */
+  font-family: 'Courier Prime', monospace;
+  /* font-family: 'Cutive Mono', monospace; */
 }
 
 .courseName {
-  background-color: #607262;
+  background-color: black;
   color: white;
   display: flex;
   justify-content: center;
-  width: 250px;
-  padding: 20px 0;
+  width: 90%;
+  padding: 10px 0;
+  border: 1px solid black;
+  border-radius: 8px;
+ 
+  
 }
 
 .courseName:hover {
-  background-color: #516053;
+  opacity: 90%;
   cursor: pointer;
+  
 }
 
 .courseNameSelected {
-  background-color: #00529d;
-  color: white;
+  background-color: white;
+  color: black;
   display: flex;
   justify-content: center;
-  width: 250px;
-  padding: 20px 0;
+  width: 90%;
+  padding: 10px 0;
+  border: 1px solid black;
+  border-radius: 8px;
+  
 }
-
-/* .courseName:focus {
-    background-color: #00529D;
-    border: none;
-} */

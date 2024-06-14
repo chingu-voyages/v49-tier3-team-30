@@ -1,0 +1,12 @@
+.appContainer {
+    background-image: url("map12.jpg");
+    padding: 20px 30px;
+    background-size:cover;
+    background-position: 170px -200px;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+html {
+    scroll-behavior: smooth;
+  }

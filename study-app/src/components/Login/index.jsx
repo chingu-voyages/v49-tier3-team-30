@@ -52,7 +52,7 @@ function Login({ setAuthState }) {
   };
 
   return (
-    <div className="signUpContainer">
+    <div className="loginContainer">
       <div className="card">
         <form className="inputsContainer" onSubmit={handleSubmit}>
           <input
@@ -93,6 +93,8 @@ function Login({ setAuthState }) {
         </div>
       </div>
     </div>
+
+    
   );
 }
 

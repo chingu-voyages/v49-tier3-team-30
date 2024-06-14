@@ -9,6 +9,7 @@ import "./components/Login/Login.css";
 import "./components/Colors/Colors.css";
 
 
+
 import Navbar from "./components/Navbar/Navbar";
 import Main from "./components/Main/Main";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
@@ -59,6 +60,8 @@ function App() {
           />
           {/* <Route path="/forgot-password" element={<ForgotPassword />} /> */}
         </Routes>
+        <Navbar authState={authState} setAuthState={setAuthState} />
+
       </Router>
     </div>
   );
