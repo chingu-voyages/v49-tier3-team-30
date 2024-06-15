@@ -1,14 +1,30 @@
 import React from "react";
 import "../Main/Main.css";
+import {  GiMountainRoad  } from "react-icons/gi";
+import { Link } from "react-router-dom";
+
 
 function Welcome() {
-	return (
-		<div className="roadmapContainer">
-			<div className="roadmapTitle">
-				<h1>Welcome!!!</h1>
-			</div>
-		</div>
-	);
+  return (
+    <div className="aboutAppContainer">
+      <div className="appDescription">
+        <p>
+          The road.map(<GiMountainRoad className="logo-about"/>) application is a cutting-edge educational tool designed
+          to streamline and enhance the process of acquiring new web development
+          skills.
+        </p>
+        <p>
+          Whether you are a beginner looking to enter the world of web
+          development or an experienced developer seeking to expand your
+          expertise, the road.map(<GiMountainRoad className="logo-about"/>) offers a structured and engaging pathway to
+          learning.
+        </p>
+        <p>
+          To keep track of your learning progress you are welcome to <Link to="/signup" className="welcomeSignup">sign up</Link>. 
+        </p>
+      </div>
+    </div>
+  );
 }
 
 export default Welcome;

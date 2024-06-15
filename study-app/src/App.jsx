@@ -7,6 +7,10 @@ import "./components/RoadMap/RoadMap.css";
 import "./components/Main/Main.css";
 import "./components/Login/Login.css";
 import "./components/Colors/Colors.css";
+import "./components/Welcome/Welcome.css";
+import "./components/Footer/Footer.css";
+
+
 
 
 
@@ -18,6 +22,7 @@ import Login from "./components/Login";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Colors from "./components/Colors/Colors";
+import Footer from "./components/Footer/Footer";
 const serverUrl = import.meta.env.VITE_SERVER_URL;
 
 function App() {
@@ -60,7 +65,7 @@ function App() {
           />
           {/* <Route path="/forgot-password" element={<ForgotPassword />} /> */}
         </Routes>
-        <Navbar authState={authState} setAuthState={setAuthState} />
+        <Footer authState={authState} setAuthState={setAuthState} />
 
       </Router>
     </div>

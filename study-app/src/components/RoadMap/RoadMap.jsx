@@ -8,6 +8,7 @@ const serverUrl = import.meta.env.VITE_SERVER_URL;
 
 function RoadMap({ nodes, edges, courseName, authState }) {
   const [lessonData, setLessonData] = useState(null);
+  console.log("authState=========================================", authState)
 
   const reactFlowWrapper = useRef(null);
 
@@ -111,6 +112,7 @@ function RoadMap({ nodes, edges, courseName, authState }) {
     >
       <div className="roadmapTitle">
         <div className="roadmapText">{courseName}</div>
+        <div>You have completed ...% of the course</div>
       </div>
       <div ref={reactFlowWrapper}>
         

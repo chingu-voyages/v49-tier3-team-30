@@ -15,6 +15,7 @@
   background: transparent;
   color: #5d5c5c;
   gap: 10px;
+  font-family: "Courier Prime", monospace;
   /* border: solid 2px #757575; */
   
   }
@@ -32,10 +33,10 @@
     font-size: 15px;
   }
   input:focus {
-    border: 1px solid transparent;
+    border: 1px solid black;
   }
   .input {
-    border: 1px solid transparent;
+    border: 1px solid black;
   }
 
   .inputEmpty {

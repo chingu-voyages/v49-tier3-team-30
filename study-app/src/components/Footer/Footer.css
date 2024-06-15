@@ -1,0 +1,13 @@
+.footerSection {
+    background-color: rgba(239, 235, 235, 0.886);
+    box-shadow: 2px 0 5px rgba(71, 25, 25, 0.5);
+    margin-top: 10px;
+    padding: 1rem 1rem 1rem 1rem;
+    display: flex;
+    height: 10%;
+    align-items: center;
+    justify-content: center;
+    width: 99.7%;
+    font-family: 'Courier Prime', monospace;
+    
+  }
