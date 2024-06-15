@@ -36,3 +36,15 @@
 .welcomeSignup:hover {
     background-color:#A1CC5C
 }
+
+.compassContainer {
+ 
+  display: flex;
+  justify-content: center;
+}
+
+.compass {
+  height: 80px;
+  width: 80px;
+  color: rgba(25, 24, 24, 0.61)
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import "../Main/Main.css";
-import {  GiMountainRoad  } from "react-icons/gi";
+import {  GiMountainRoad, GiCompass  } from "react-icons/gi";
 import { Link } from "react-router-dom";
 
 
@@ -22,6 +22,8 @@ function Welcome() {
         <p>
           To keep track of your learning progress you are welcome to <Link to="/signup" className="welcomeSignup">sign up</Link>. 
         </p>
+        <p>Have a great jorney! </p> 
+        <div className="compassContainer"><GiCompass className="compass"/></div>
       </div>
     </div>
   );
