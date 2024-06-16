@@ -23,6 +23,8 @@ To start a project: run npm install and then npm run dev.
 - Amy Vier: [GitHub](https://github.com/AmyVier) / [LinkedIn](https://linkedin.com/in/amy-vier-b73694218)
 - Wendy Kuo: [GitHub](https://github.com/codergirl01)
 
+- ### The main page:
+<img src="https://github.com/chingu-voyages/v49-tier3-team-30/blob/main/study-app/src/img/total%20page.png"  width="60%" height="30%">
   
 
 
