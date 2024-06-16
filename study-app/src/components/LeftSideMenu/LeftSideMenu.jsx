@@ -6,10 +6,8 @@ const serverUrl = import.meta.env.VITE_SERVER_URL
 //const courses = ['Front End', 'Back End', 'Name1', 'Name2']
 
 function LeftSideMenu({ courses, setMode, mode, setEdges, setNodes, setCourseName }) {
-  const selectCourse = async (i) => {
-    console.log("Course selected", i);
-    setMode(mode === courses[i] ? "" : courses[i]);
-   
+  const selectCourse = async (i) => {   
+    setMode(mode === courses[i] ? "" : courses[i]);  
 
     try {
       const response = await axios.get(

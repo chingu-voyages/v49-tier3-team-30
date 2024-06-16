@@ -14,6 +14,8 @@
 }
 
 
+
+
 .lessonContainer {
   background-color: rgb(221, 218, 218);
   width: 25%;
@@ -25,6 +27,13 @@
   overflow-y: scroll;
   scrollbar-width: none;
   font-size: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+	.lessonContainer {
+    width: 60%;
+    
+  }
 }
 
 .lessonTitle {

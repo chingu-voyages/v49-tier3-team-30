@@ -5,6 +5,16 @@
     background-position: 170px -200px;
     background-repeat: no-repeat;
     height: 100vh;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
+@media screen and (max-width: 768px) {
+	.appContainer {
+        background-position: -280px 150px;
+        background-size:auto;
+    
+  }
 }
 
 html {

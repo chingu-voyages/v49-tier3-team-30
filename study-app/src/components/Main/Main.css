@@ -4,6 +4,15 @@
 	gap: 10px;
 	position: relative;
 	overflow: hidden;
+	height: 80%;
+}
+
+@media screen and (max-width: 768px) {
+	.mainContainer {
+		height: 77%;
+		flex-direction: column;
+		
+	}
 }
 
 

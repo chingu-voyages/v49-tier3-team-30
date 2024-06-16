@@ -3,20 +3,37 @@ import ReactFlow, { Handle } from "reactflow";
 import "reactflow/dist/style.css";
 import axios from "axios";
 import RightSideMenu from "../RightSideMenu/RightSideMenu";
-import mapBackgr from "../../assets/map.jpg";
 const serverUrl = import.meta.env.VITE_SERVER_URL;
 
-function RoadMap({ nodes, edges, courseName, authState }) {
+function RoadMap({ nodes, edges, courseName, authState, setAuthState }) {
+  const { completedLessons } = authState;
   const [lessonData, setLessonData] = useState(null);
-  console.log("authState=========================================", authState)
-
+  const [percent, setPercent] = useState(null);
   const reactFlowWrapper = useRef(null);
 
   useEffect(() => {
+    if (!completedLessons || !nodes) return;
+    if (!nodes.length) return setPercent(null);
+    const courseLessons = nodes.map((n) => n.data._id);
+    const currCourseCompleted = courseLessons.filter((les) =>
+      completedLessons.includes(les)
+    );
+    const newPercent = Math.round(
+      (100 * currCourseCompleted.length) / courseLessons.length
+    );
+    setPercent(newPercent);
+  }, [completedLessons, nodes]);
+
+  useEffect(() => {
     const handleScroll = (e) => {
-      if (reactFlowWrapper.current && reactFlowWrapper.current.contains(e.target)) {
+      if (
+        reactFlowWrapper.current &&
+        reactFlowWrapper.current.contains(e.target)
+      ) {
         e.preventDefault();
-        window.scrollBy(0, e.deltaY);
+        //window.scrollBy(0, e.deltaY); //as I set up a static background, I would like to add event listener to appContainer. not to windoq
+        document.getElementById("appContainer").scrollBy(0, e.deltaY);
+        //window.scrollTo(0,0)
       }
     };
 
@@ -32,37 +49,29 @@ function RoadMap({ nodes, edges, courseName, authState }) {
     };
   }, []);
 
-
-
   const getLessonDetails = async (e) => {
     try {
       const id = e.target.id;
       if (!id) return;
       const lessonDetails = await axios.get(`${serverUrl}/lesson/${id}`);
-
-      console.log("lessonDetails.data", lessonDetails.data);
       setLessonData(lessonDetails.data[0]);
-      console.log("setLessonData", lessonData);
     } catch (err) {
       console.log(err);
     }
   };
 
-  
-
   const CustomNode = ({ data }) => {
     const [hovered, setHovered] = useState(false);
-    //console.log("dataaaaaa", data); //here I can find the id of lessons data?._id
     const customStyle = {
       background: "transparent",
       border: "1px solid transparent",
       minWidth: "1px",
       minHeight: "1px",
       width: "1px",
-      height: "1px",  
-    }
-    const targetStyle = {...customStyle, [data.targetPosition]: '0px'}      
-    const sourceStyle = {...customStyle, [data.sourcePosition]: '0px'}
+      height: "1px",
+    };
+    const targetStyle = { ...customStyle, [data.targetPosition]: "0px" };
+    const sourceStyle = { ...customStyle, [data.sourcePosition]: "0px" };
 
     return (
       <div
@@ -107,33 +116,36 @@ function RoadMap({ nodes, edges, courseName, authState }) {
   //we cannot use onNodeClick  because React Flow wraps each Custom node with additional div. This additional div does not have lesson id but due to event bubbling sometimes our Custom node div handles a click and causes getLessonDetail logic to work, and sometimes a click event is handled  by React Flow node wrap and getLessonDetail logic does not work. That is why getLessonDetails functios is hadles afte click event from React Flow div.
 
   return (
-    <div
-      className="roadmapContainer"
-    >
+    <div className="roadmapContainer">
       <div className="roadmapTitle">
         <div className="roadmapText">{courseName}</div>
-        <div>You have completed ...% of the course</div>
+        <div>
+          {percent ? `You have completed ${percent}% of the course` : ""}
+        </div>
       </div>
-      <div ref={reactFlowWrapper}>
-        
-      </div>
-      <div ref={reactFlowWrapper} style={{width: '100%', height: '100%'}}>
-      <ReactFlow
-        nodes={nodes}
-        edges={edges}
-        nodeTypes={nodeTypes}
-        fitView
-        zoomOnScroll={false}
-        panOnDrag={true}
-        panOnScroll={false}
-        style={{width: '100%', height: '100%'}}
-      />
+
+      <div
+        ref={reactFlowWrapper}
+        style={{ width: "100%", height: "100%" }}
+        className="wrapContainer"
+      >
+        <ReactFlow
+          nodes={nodes}
+          edges={edges}
+          nodeTypes={nodeTypes}
+          fitView
+          zoomOnScroll={false}
+          panOnDrag={true}
+          panOnScroll={false}
+        />
       </div>
       {lessonData && (
         <RightSideMenu
           lessonData={lessonData}
           setLessonData={setLessonData}
           authState={authState}
+          setAuthState={setAuthState}
+          style={{ width: "100%", height: "100%" }}
         />
       )}
     </div>

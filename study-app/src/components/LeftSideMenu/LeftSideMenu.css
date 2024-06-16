@@ -1,11 +1,20 @@
-.leftSideMenuSection {
-  /* background-color: #e4dfdf; */
-  /* background-color: rgba(227, 222, 222, 0.886); */
+.leftSideMenuSection {  
   background-color: rgba(239, 235, 235, 0.886);
-  /* border: #516053 solid 1px; */
   box-shadow: 2px 0 5px rgba(71, 25, 25, 0.5);
   width: 15%;
   height: 86vh;
+}
+
+@media screen and (max-width: 1024px) {
+	.leftSideMenuSection {      
+    width: 30%;
+  }
+}
+@media screen and (max-width: 768px) {
+	.leftSideMenuSection {    
+    height: auto;
+    width: 99.6%;
+  }
 }
 
 .leftSideMenuContainer {
@@ -14,12 +23,18 @@
   flex-direction: column;
   gap: 10px;
   padding-top: 30px;
+  padding-bottom: 20px ;
   align-items: center;
   font-size: 1rem;  
-  /* font-weight: 600; */
-  /* font-family: 'Special Elite', cursive; */
   font-family: 'Courier Prime', monospace;
-  /* font-family: 'Cutive Mono', monospace; */
+}
+@media screen and (max-width: 624px) {
+	.leftSideMenuContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+   
+  }
 }
 
 .courseName {
@@ -27,18 +42,17 @@
   color: white;
   display: flex;
   justify-content: center;
+  align-items: center;
+  text-align: center;
   width: 90%;
-  padding: 10px 0;
+  padding: 10px 3px;
   border: 1px solid black;
-  border-radius: 8px;
- 
-  
+  border-radius: 8px;  
 }
 
 .courseName:hover {
   opacity: 90%;
-  cursor: pointer;
-  
+  cursor: pointer;  
 }
 
 .courseNameSelected {
@@ -50,6 +64,5 @@
   padding: 10px 0;
   border: 1px solid black;
   border-radius: 8px;
-  cursor: pointer;
-  
+  cursor: pointer;  
 }

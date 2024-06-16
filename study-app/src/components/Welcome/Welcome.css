@@ -9,6 +9,13 @@
   justify-content: center;
 }
 
+@media screen and (max-width: 768px) {
+	.aboutAppContainer {
+    width: 99.6%;
+    
+  }
+}
+
 .appDescription {
   width: 80%;
   font-size: 1.3rem;
