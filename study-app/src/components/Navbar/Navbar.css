@@ -29,6 +29,14 @@
   gap: 20px
 }
 
+
+@media screen and (max-width: 768px) {
+  .loginLogoutContainer {
+    flex-direction: column;
+    
+  }
+}
+
 .greeting {
   font-size: 0.8rem;
   font-weight: 600;
