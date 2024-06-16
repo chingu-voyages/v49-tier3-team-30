@@ -48,10 +48,7 @@ function SignUp() {
   return (
     <div className="signUpContainer">
       <div className="card">
-        <div className="header">
-          <p>Welcome to FreeSource!</p>
-          <p>Look no further! All the information you need is here.</p>
-        </div>
+        
         <form onSubmit={handleSubmit} className="inputsContainer">
           <input
             onChange={handleChange}

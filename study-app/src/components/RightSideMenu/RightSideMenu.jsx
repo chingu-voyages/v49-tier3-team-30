@@ -9,21 +9,25 @@ export default function RightSideMenu({
   lessonData,
   setLessonData,
   authState,
+  setAuthState,
 }) {
   const [completed, setCompleted] = useState(lessonData.isCompleted);
 
   let menuRef = useRef();
-
-  console.log("RightSideMenulessonData", lessonData);
-
   const handleLessonComplition = async (id) => {
     try {
       axios
         .put(`${serverUrl}/lesson/checkbox/${id}`, { isCompleted: !completed })
         .then((response) => {
-          console.log("response", response.data);
+          console.log("response");
         });
       setCompleted(!completed);
+      if (!completed) {
+        setAuthState((prev) => ({
+          ...prev,
+          completedLessons: [...authState.completedLessons, id],
+        }));
+      }
     } catch (err) {
       console.log(err);
     }

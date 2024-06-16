@@ -1,3 +1,12 @@
+.loginContainer {
+  background-color: rgba(239, 235, 235, 0.886);
+  box-shadow: 2px 0 5px rgba(71, 25, 25, 0.5);
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .signUpLinkContainer {
   display: flex;  
   border: none;
@@ -6,6 +15,7 @@
   background: transparent;
   color: #5d5c5c;
   gap: 10px;
+  font-family: "Courier Prime", monospace;
   /* border: solid 2px #757575; */
   
   }
@@ -23,10 +33,10 @@
     font-size: 15px;
   }
   input:focus {
-    border: 1px solid transparent;
+    border: 1px solid black;
   }
   .input {
-    border: 1px solid transparent;
+    border: 1px solid black;
   }
 
   .inputEmpty {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function Login({ setAuthState }) {
@@ -27,20 +27,18 @@ function Login({ setAuthState }) {
     setErrors(newErrors);
 
     if (newErrors.username || newErrors.password) {
-      console.log("Some inputs are empty");
       return;
     }
 
     try {
       const response = await axios.post(`${serverUrl}/user/login`, inputData);
-      console.log("response from post.login", response.data.username); //message : "Username or Password is Incorrect"
 
       const handleCorrectAuth = () => {
-        console.log("-------------------------------");
         setAuthState({
           username: response.data.username,
           id: response.data.userId, //"6667f4b39da6637d5ed0994d"
           status: true,
+          completedLessons: response.data.completedLessons,
         });
         setInputData({ username: "", password: "" });
         navigate("/");
@@ -52,7 +50,7 @@ function Login({ setAuthState }) {
   };
 
   return (
-    <div className="signUpContainer">
+    <div className="loginContainer">
       <div className="card">
         <form className="inputsContainer" onSubmit={handleSubmit}>
           <input
@@ -72,14 +70,9 @@ function Login({ setAuthState }) {
             value={inputData.password}
             className={errors.password ? "inputEmpty" : "input"}
           />
-
-          
-            <div className="textMessage">{showMessage ? "Incorrect Username or Password" : "" }</div>
-          
-
-          {/* {showMessage ? <div className="textMessage">Username or Password is Incorrect</div> : <Link to="forgot-password" className="forgotPasswordLink">
-            Forgot Password
-          </Link>} */}
+          <div className="textMessage">
+            {showMessage ? "Incorrect Username or Password" : ""}
+          </div>
 
           <button className="submitBtn" type="submit">
             Login

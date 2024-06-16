@@ -13,9 +13,9 @@ html * {
 	height: 100%;
 }
 
-.appContainer {
+/* .appContainer {
 	height: 100%;
-}
+} */
 
 .profileContainer {
 	display: flex;
