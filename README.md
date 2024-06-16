@@ -24,7 +24,16 @@ To start a project: run npm install and then npm run dev.
 - Wendy Kuo: [GitHub](https://github.com/codergirl01)
 
 - ### The main page:
-<img src="https://github.com/chingu-voyages/v49-tier3-team-30/blob/main/study-app/src/img/total%20page.png"  width="60%" height="30%">
+<img src="https://github.com/chingu-voyages/v49-tier3-team-30/blob/main/study-app/src/img/total%20page.png"  width="70%" height="40%">
+
+- ### login Process:
+<img src="https://github.com/chingu-voyages/v49-tier3-team-30/blob/main/study-app/src/img/Login%20process.png"  width="70%" height="40%">
+
+- ### On Click event on every Lesson the right side Menu opens:
+<img src="https://github.com/chingu-voyages/v49-tier3-team-30/blob/main/study-app/src/img/RightSideMenu.png"  width="70%" height="40%">
+
+- ### Responsive design:
+<img src="https://github.com/chingu-voyages/v49-tier3-team-30/blob/main/study-app/src/img/Responsive.png"  width="40%" height="70%">
   
 
 
